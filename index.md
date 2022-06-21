@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Interacting with APIs: Example with the Food data API
 
 You can use the [editor on GitHub](https://github.com/dkorver/food/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
