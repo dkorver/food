@@ -1,5 +1,16 @@
 ### Interacting with APIs: Example with the Food data API
 
+I am creating a vignette to show how to contact an API using functions I’ve created to query, parse, and return well-structured data.  Then we'll use them to do a little exploratory data analysis.
+
+##Requirements
+
+To use the functions for interacting with the Food API, I used the following packages:
+-httr
+-jsonlite
+-tidyverse
+-devtools
+
+
 You can use the [editor on GitHub](https://github.com/dkorver/food/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
