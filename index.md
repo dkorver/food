@@ -17,6 +17,7 @@ With Spring and Summer, some people like to plant a vegetable garden!  If you ar
 
 ![Tomatoes](/dkorver/food/IMG_0602.png)
 
+If you are growing something new, you are always wondering, "What can I cook with this?"  To solve this problem, the first function will find recipes  
 
 You can use the [editor on GitHub](https://github.com/dkorver/food/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
