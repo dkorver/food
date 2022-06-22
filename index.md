@@ -15,7 +15,7 @@ To use the functions for interacting with the Food API, I used the following pac
 
 With Spring and Summer, some people like to plant a vegetable garden!  If you are adventureous, you like to plant something that you have never planted before to see if you can grow it and then experiment with its produce in the kitchen.    
 
-![](/dkorver/food/IMG_0602.png)
+![IMG_0602](/dkorver/food/IMG_0602.png)
 
 If you are growing something new, you are always wondering, "What can I cook with this?"  To solve this problem, the first function will find recipes  
 
