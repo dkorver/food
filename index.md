@@ -11,6 +11,9 @@ To use the functions for interacting with the Food API, I used the following pac
 - tidyverse 
 - devtools 
 
+## API Interaction Functions
+
+With Spring and Summer, some people like to plant a vegetable garden!  If you are adventureous, you like to plant something that you have never planted before to see if you can grow it and then experiment with its produce in the kitchen.    
 
 
 
