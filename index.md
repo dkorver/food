@@ -13,7 +13,7 @@ To use the functions for interacting with the Financial data API, I used the fol
 
 ## API Interaction Functions
 
-The first function will clean up the variable names so that they are readable instead of having periods in the name.  
+The first challenge with this API was dealing with the variable names.  The default names are not preferable for me to work with when doing data analysis.  So I created a function to rename some of the variables to make them readable.    
 
  
 
