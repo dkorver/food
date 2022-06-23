@@ -13,6 +13,8 @@ To use the functions for interacting with the Financial data API, I used the fol
 
 ## API Interaction Functions
 
+The first function will clean up the variable names so that they are readable instead of having periods in the name.  
+
  
 
 You can use the [editor on GitHub](https://github.com/dkorver/food/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
