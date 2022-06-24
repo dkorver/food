@@ -13,7 +13,7 @@ To use the functions for interacting with the Financial data API, I used the fol
 
 ## API Interaction Functions
 
-The first challenge with this API was dealing with the variable names.  The default names are not preferable for me to work with when doing data analysis.  So I created a function to rename some of the variables to make them readable.    
+The first challenge with this API was dealing with the variable names.  The default names are not preferable for us to work with when doing data analysis, so I renamed some of the variables to make them readable.  Once I selected and renamed the variables to make them readable, I wanted to calculate the percentage change between the stock's open and close price.  Now that I have the stock's percentage change, I wanted to output the day's best and worse performers.  And finally, I wanted to format the values appropriately.         
 
  
 
