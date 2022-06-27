@@ -198,9 +198,9 @@ month_worst
     ## 4 TECL     232837  1696632 422.    41.3                -90.2 Loss      
     ## 5 ELP      984732 16122045  10.6    1.26               -88.1 Loss
 
-Using my `month_gain` variable, I created a contingency table to see how
-many stocks experienced a gain, loss, or no change during the month of
-March, 2021.
+Using the `month_gain` variable, I created a contingency table to see
+how many stocks experienced a gain, loss, or no change during the month
+of March, 2021.
 
 ``` r
 table(combine$month_gain)
@@ -212,8 +212,96 @@ table(combine$month_gain)
 
 As we can see by the table, the number of stocks that had a gain or loss
 by monthly percentage change is almost even and very few had experienced
-no percentage change for the month.
+no percentage change for the month. I then wanted to do some summary
+statistics on the trading volume at the start and end of the month by
+the `month_gain` variable.
 
-After investigating the number of stocks that experienced a gain, loss
-or no change, I wanted to compare the trading volome for these stocks at
-the start and end of the month.
+``` r
+tapply(combine$volume01, combine$month_gain, summary)
+```
+
+    ## $Gain
+    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    ##         0     17549    108540   1055439    602809 144883550 
+    ## 
+    ## $Loss
+    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    ##         0     42534    212752   1532829    834951 237428878 
+    ## 
+    ## $`No     change`
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##     100    8180   73036  710845  556073 7182617
+
+``` r
+tapply(combine$volume31, combine$month_gain, summary)
+```
+
+    ## $Gain
+    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    ##         0     17290    127480   1074769    619816 113779108 
+    ## 
+    ## $Loss
+    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    ##         0     24915    164088   1289633    767527 198857743 
+    ## 
+    ## $`No     change`
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##     100    6000   80200  534310  471144 7736264
+
+I’m seeing a difference in trading volume between the stock’s that had a
+gain and the stocks that had a loss at the start and end of the month.
+Lets take a look at some boxplots. Due to many outliers, I kept the
+trading volume to less than 500,000 so we can visualize the difference
+between the stocks that experienced a gain, loss or no change for the
+month.
+
+``` r
+vol01<-filter(combine,volume01<500000)
+ggplot(vol01, aes(x=month_gain,y=volume01, fill=month_gain)) + geom_boxplot() +
+  labs(title="Boxplot for Trading Volume on March 1",x="",y="Trading Volume") +
+  guides(fill=FALSE) +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+    ## "none")` instead.
+
+![](Finacial_Data_API_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+``` r
+vol31<-filter(combine,volume31<500000)
+ggplot(vol31, aes(x=month_gain,y=volume31, fill=month_gain)) + geom_boxplot() +
+  labs(title="Boxplot for Trading Volume on March 31",x="",y="Trading Volume") +
+  guides(fill=FALSE) +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+    ## "none")` instead.
+
+![](Finacial_Data_API_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
+
+Lets see a scatterplot comparing the trading volume between March 1 and
+March 31.
+
+``` r
+options(scipen=999)
+ggplot(combine, aes(x=volume01, y=volume31)) + geom_text(aes(label = ticker)) +
+  xlab("March 1, 2021") +
+  ylab("March 31, 2021") +
+  ggtitle("Trading volume") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+![](Finacial_Data_API_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+
+Other than the stock, Sundial Growers, Inc. (SNDL) experiencing large
+trading volume at the start and end of March, I’m not seeing anything
+too outlandish.
+
+## Wrap-Up
+
+It was unfortunate that I was not able to use current stock market data,
+but for the month that I was able to use, it was interesting to see the
+difference in trading volume between the stocks that had a gain, loss,
+or no change for the month.
